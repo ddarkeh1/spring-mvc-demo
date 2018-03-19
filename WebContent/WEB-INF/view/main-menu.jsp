@@ -2,8 +2,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>PlaceHolder</title>
+	
+	<!-- Bootstrap Core CSS -->
 	<link href="<c:url value="/resources/styles/bootstrap.min.css" />" rel="stylesheet">
-    <script src="<c:url value="/resources/javascript/bootstrap.bundle.min.js" />"></script>
+	
 </head>
 
 <body>
@@ -19,7 +26,7 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="showForm">Hello World Form</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,6 +49,10 @@
     </form>
   </div>
 </nav>
+
+<!-- Bootstrap core JavaScript -->
+<script src="<c:url value="/resources/javascript/bootstrap.bundle.min.js" />"></script>
+
 
 </body>
 </html>
