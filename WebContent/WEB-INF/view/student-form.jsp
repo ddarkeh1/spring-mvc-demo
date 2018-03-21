@@ -20,9 +20,28 @@
 	
 	<br><br>
 	
+	Country:
+	
+	<form:select path="country">
+	
+		<form:options items="${theCountryOptions}" />
+		
+	</form:select>
+	
+	<br><br>
+	
+	Favourite Language:
+	
+	<form:radiobuttons path="favouriteLanguage"
+	items="${student.favouriteLanguageOptions }"/>
+	
+	
+	<br><br>
+	
 	<input type="submit" value="Submit" />
 	
 	</form:form>
+	
 	
 	
 </body>
