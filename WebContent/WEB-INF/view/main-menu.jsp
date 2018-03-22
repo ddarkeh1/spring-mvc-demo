@@ -31,6 +31,9 @@
             <li class="nav-item">
         <a class="nav-link" href="student/showForm">Student Form</a>
       </li>
+            <li class="nav-item">
+        <a class="nav-link" href="customer/showForm">Customer Validation Example</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
