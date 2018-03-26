@@ -41,7 +41,7 @@ public class CustomerController {
 			@Valid @ModelAttribute("customer") Customer customer,
 			BindingResult bindingResult) {
 		
-		System.out.println("Last Name: |" + customer.getLastName() + "|");
+		System.out.println(bindingResult);
 		
 		if (bindingResult.hasErrors())
 			return "customer-form";

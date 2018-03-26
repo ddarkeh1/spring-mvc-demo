@@ -31,14 +31,26 @@
 	
 	<br><br>
 	
+	Free passes: <form:input path="freePasses"/>
+	<form:errors path="freePasses" cssClass="error" />
+	
+	<br><br>
+	
+	Post code: <form:input path="postCode"/>
+	<form:errors path="postCode" cssClass="error" />
+	
+	<br><br>
+	
 	<input type="submit" value="Submit" />
 	
 	</form:form>
 
 	<br><br>
 	
-	Validation Test page done server side
-	1. includes a preprocesser to trim whitespace if String.class is passed
+	<p>Validation Test page done server side <br/>
+	1. includes a preprocesser to trim whitespace if String.class is passed</p>
+	<p>2. Includes min and max validation on free passes</p>
+	<p>3. Post code is a simple regex validation</p>
 
 </body>
 
