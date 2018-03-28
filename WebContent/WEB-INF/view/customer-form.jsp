@@ -41,6 +41,9 @@
 	
 	<br><br>
 	
+	Course code: <form:input path="courseCode"/>
+	<form:errors path="courseCode" cssClass="error" />
+	
 	<input type="submit" value="Submit" />
 	
 	</form:form>
@@ -51,6 +54,7 @@
 	1. includes a preprocesser to trim whitespace if String.class is passed</p>
 	<p>2. Includes min and max validation on free passes</p>
 	<p>3. Post code is a simple regex validation</p>
+	<p>4. Course Code uses custom validation, with custom annotation of @CourseCode</p>
 
 </body>
 
