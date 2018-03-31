@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.ddarkeh.hibernate.demo.entity.Student;
 
-public class QueryStudentDemo {
+public class UpdateStudentDemo {
 
 	public static void main(String[] args) {
 
@@ -21,32 +21,36 @@ public class QueryStudentDemo {
 		Session session = factory.getCurrentSession();
 		
 		try {			
-			int studentId = 1;
+			// create a student object
+			System.out.println("Creating a new student object..");
+			Student tempStudent = new Student("Daffy", "Duck", "DaffyDuck@hotmail.com");
 			
 			// start a transaction
 			session.beginTransaction();
 			
-			// Retrieve student based on the id
-			System.out.println("\nGetting student with id: " + studentId);
+			// Save the student object
+			System.out.println("Passing Student object to session save");
+			session.save(tempStudent);
 			
-			Student myStudent = session.get(Student.class, studentId);
-			
-			System.out.println("Updating student..");
-			myStudent.setFirstName("Scooby");
-						
-			// commit the db transaction
+			// commit transaction
 			session.getTransaction().commit();
 			
-			// New Update code
+			// Read Code
 			
+			// find out the student's id: primary key
+			System.out.println("Saved Studen. Generated id " + tempStudent.getId());
+			
+			// get a new session
 			session = factory.getCurrentSession();
 			session.beginTransaction();
 			
-			// Update email for all student
-			System.out.println("Update email");
+			// retrieve student based on id
+			System.out.println("\nGetting student with id: " + tempStudent.getId());
 			
-			session.createQuery("update Student set email='foo@gmail.com'")
-								.executeUpdate();
+			Student myStudent = session.get(Student.class, tempStudent.getId());
+			
+			System.out.println("Get Complete: " + myStudent);
+			// commit the transaction
 			
 			session.getTransaction().commit();
 			
