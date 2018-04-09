@@ -4,11 +4,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.ddarkeh.hibernate.demo.entity.Course;
 import com.ddarkeh.hibernate.demo.entity.Instructor;
 import com.ddarkeh.hibernate.demo.entity.InstructorDetail;
-import com.ddarkeh.hibernate.demo.entity.Student;
 
-public class GetInstructorDetailBiDirectional {
+public class CreateCoursesDemo {
 
 	public static void main(String[] args) {
 
@@ -17,6 +17,7 @@ public class GetInstructorDetailBiDirectional {
 								.configure("hibernate.cfg.xml")
 								.addAnnotatedClass(Instructor.class)
 								.addAnnotatedClass(InstructorDetail.class)
+								.addAnnotatedClass(Course.class)
 								.buildSessionFactory();
 		
 		// create a session
@@ -24,33 +25,26 @@ public class GetInstructorDetailBiDirectional {
 		Session session = factory.getCurrentSession();
 		
 		try {			
-		
 			// start a transaction
-			session.beginTransaction();
+			session.beginTransaction();	
 			
-			// get
-			int theId = 299;
-			InstructorDetail tempInstructorDetail =
-					session.get(InstructorDetail.class, theId);
+			int theId = 1;
+			Instructor tempInstructor = session.get(Instructor.class, theId);
 			
-			//print object
+			Course tempCourse1 = new Course("Air Guitar - The Ultimate Guide");
+			Course tempCourse2 = new Course("The Pinball Masterclass");
 			
-			System.out.println("tempInstDetails: " + tempInstructorDetail);
+			tempInstructor.add(tempCourse1);
+			tempInstructor.add(tempCourse2);
 			
-			//print associated
-			
-			System.out.println("associated: " + tempInstructorDetail.getInstructor());
-					
+			session.save(tempCourse1);
+			session.save(tempCourse2);
 			// commit the db transaction
 			session.getTransaction().commit();
 			
 			System.out.println("Done!");
-			} 
-		catch (Exception exc) {
-			exc.printStackTrace();
-		} 
-		finally {
-			session.close();
+			
+		} finally {
 			factory.close();
 		}
 	}

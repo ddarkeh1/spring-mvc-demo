@@ -8,7 +8,7 @@ import com.ddarkeh.hibernate.demo.entity.Instructor;
 import com.ddarkeh.hibernate.demo.entity.InstructorDetail;
 import com.ddarkeh.hibernate.demo.entity.Student;
 
-public class GetInstructorDetailBiDirectional {
+public class DeleteInstructorDetailDemo {
 
 	public static void main(String[] args) {
 
@@ -29,7 +29,7 @@ public class GetInstructorDetailBiDirectional {
 			session.beginTransaction();
 			
 			// get
-			int theId = 299;
+			int theId = 2;
 			InstructorDetail tempInstructorDetail =
 					session.get(InstructorDetail.class, theId);
 			
@@ -41,6 +41,12 @@ public class GetInstructorDetailBiDirectional {
 			
 			System.out.println("associated: " + tempInstructorDetail.getInstructor());
 					
+			
+			// delete
+			System.out.println("Deleting associacted instructor: " + tempInstructorDetail);
+			session.delete(tempInstructorDetail);
+			
+			
 			// commit the db transaction
 			session.getTransaction().commit();
 			
